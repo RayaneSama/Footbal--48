@@ -13,14 +13,28 @@ class MainScreen extends StatefulWidget {
   State<MainScreen> createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {       
+class _MainScreenState extends State<MainScreen> {
   int currentTab = 0;
-  List screens = [
-    const HomeScreen(),
-    const CalenderHomeScreen(),
-    const DetailsHomeScreen(),
-    const name(),
-  ];
+  List screens = [];
+  void goToProfilePage() {
+    setState(() {
+      currentTab = 4;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    screens = [
+      const HomeScreen(),
+      const CalenderHomeScreen(),
+      const DetailsHomeScreen(),
+      Homeprofile(onpressed: () {
+        goToProfilePage();
+      }),
+      const MyProfilePage()
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +78,7 @@ class _MainScreenState extends State<MainScreen> {
             ),
             BottomNavItem(
               title: "News",
-              icon: Iconsax.book,//mmm chart 
+              icon: Iconsax.book, //mmm chart
               isActive: currentTab == 2,
               onTap: () {
                 setState(() {

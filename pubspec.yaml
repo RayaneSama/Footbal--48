@@ -1,6 +1,6 @@
 name: football_app
 description: "A new Flutter project."
-publish_to: "none"
+publish_to: "none" # Remove this line if you plan to publish the package
 
 version: 1.0.0+1
 
@@ -14,7 +14,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   iconsax: ^0.0.8
   carousel_slider: ^4.1.1
-  icons_plus:
+  icons_plus: any # Add a version constraint or use 'any'
   mysql1: ^0.20.0
   http: ^1.2.1
   flutter_secure_storage: ^4.2.0
@@ -24,6 +24,7 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.13.1
 
 flutter:
   uses-material-design: true
@@ -41,3 +42,9 @@ flutter:
           weight: 700
         - asset: google_fonts/TitilliumWeb-SemiBold.ttf
           weight: 500
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: "AppIcon"
+  image_path: "assets/icons/LFW-R.png"
+  remove_alpha_ios: true

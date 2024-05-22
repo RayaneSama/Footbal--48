@@ -12,7 +12,7 @@ class WelcomeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
           MaterialPageRoute(
             builder: (e) => onTap!,
@@ -20,7 +20,7 @@ class WelcomeButton extends StatelessWidget {
         );
       },
       child: Container(
-        padding: const EdgeInsets.all(20.0),//mm30
+        padding: const EdgeInsets.all(20.0), //mm30
         decoration: BoxDecoration(
           color: color!,
           borderRadius: const BorderRadius.only(

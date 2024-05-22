@@ -26,6 +26,7 @@ class AuthController {
       } else {
         print("Login failed: ${res.statusCode}");
         print("Response body: ${res.body}");
+
         return false;
       }
     } catch (e) {
