@@ -136,7 +136,7 @@ class LiveMatchInfoBox extends StatelessWidget {
               ),
               const Spacer(),
               Image.asset(
-                "assets/images/CRB.OUARIZANE.png",
+                "assets/images/AR.AIN-TARIk.png",
                 width: 85,
                 height: 85,
               ),

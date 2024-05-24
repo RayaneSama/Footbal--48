@@ -385,13 +385,7 @@ class MyProfilePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 12),
                 child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const WelcomeScreen()),
-                    );
-                  },
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(horizontal: 30), //mm24
                     backgroundColor: kprimaryColor,

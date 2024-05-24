@@ -111,44 +111,44 @@ class _MatchScreenState extends State<MatchScreen> {
                           ),
                         ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: ksecondryBackgroundColor,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        margin: const EdgeInsets.only(right: 10),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 15,
-                          vertical: 5,
-                        ),
-                        child: const Text(
-                          "H2H",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14,
-                            color: Colors.grey,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: ksecondryBackgroundColor,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        margin: const EdgeInsets.only(right: 10),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 15,
-                          vertical: 5,
-                        ),
-                        child: const Text(
-                          "Table",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14,
-                            color: Colors.grey,
-                          ),
-                        ),
-                      )
+                      // Container(
+                      //   decoration: BoxDecoration(
+                      //     color: ksecondryBackgroundColor,
+                      //     borderRadius: BorderRadius.circular(10),
+                      //   ),
+                      //   margin: const EdgeInsets.only(right: 10),
+                      //   padding: const EdgeInsets.symmetric(
+                      //     horizontal: 15,
+                      //     vertical: 5,
+                      //   ),
+                      //   child: const Text(
+                      //     "H2H",
+                      //     style: TextStyle(
+                      //       fontWeight: FontWeight.bold,
+                      //       fontSize: 14,
+                      //       color: Colors.grey,
+                      //     ),
+                      //   ),
+                      // ),
+                      // Container(
+                      //   decoration: BoxDecoration(
+                      //     color: ksecondryBackgroundColor,
+                      //     borderRadius: BorderRadius.circular(10),
+                      //   ),
+                      //   margin: const EdgeInsets.only(right: 10),
+                      //   padding: const EdgeInsets.symmetric(
+                      //     horizontal: 15,
+                      //     vertical: 5,
+                      //   ),
+                      //   child: const Text(
+                      //     "Table",
+                      //     style: TextStyle(
+                      //       fontWeight: FontWeight.bold,
+                      //       fontSize: 14,
+                      //       color: Colors.grey,
+                      //     ),
+                      //   ),
+                      // )
                     ],
                   ),
                   const SizedBox(height: 20),

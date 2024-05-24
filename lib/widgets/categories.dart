@@ -1,44 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:football_app/constants.dart';
-import 'package:football_app/logic/models/category.dart';
 
 class Categories extends StatelessWidget {
-  const Categories({
-    super.key,
-    required this.currentCat,
-  });
-
   final String currentCat;
+  final Function(String) onCategorySelected;
+
+  const Categories({
+    Key? key,
+    required this.currentCat,
+    required this.onCategorySelected,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: List.generate(
-          catgories.length,
-          (index) => Container(
+    const categories = [
+      "Senior",
+      "Under 19",
+      "Under 17",
+      "Under 15",
+    ];
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: categories.map((category) {
+        return GestureDetector(
+          onTap: () => onCategorySelected(category),
+          child: Container(
+            padding: const EdgeInsets.all(8.0),
             decoration: BoxDecoration(
-              color:
-                  currentCat == catgories[index] ? kprimaryColor : Colors.white,
-              borderRadius: BorderRadius.circular(25),
+              color: currentCat == category ? Colors.orange : Colors.grey,
+              borderRadius: BorderRadius.circular(12.0),
             ),
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 10,
-            ),
-            margin: const EdgeInsets.only(right: 10), //mm20
             child: Text(
-              catgories[index],
-              style: TextStyle(
-                color: currentCat == catgories[index]
-                    ? Colors.white
-                    : Colors.grey.shade600,
-              ),
+              category,
+              style: const TextStyle(color: Colors.white),
             ),
           ),
-        ),
-      ),
+        );
+      }).toList(),
     );
   }
 }
