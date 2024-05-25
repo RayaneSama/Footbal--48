@@ -207,7 +207,7 @@ class _CalenderHomeScreenState extends State<CalenderHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var scaffold = Scaffold(
+    return Scaffold(
       // the AppBar
       appBar: AppBar(
         elevation: 0.0,
@@ -217,55 +217,59 @@ class _CalenderHomeScreenState extends State<CalenderHomeScreen> {
           style: TextStyle(color: Colors.orange),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(1), //mmm16
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Categories",
-                style: TextStyle(
-                  fontSize: 26.0,
-                  fontWeight: FontWeight.bold,
-                ),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(1), //mmm16
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Categories",
+                    style: TextStyle(
+                      fontSize: 26.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Categories(
+                    currentCat: currentCat,
+                    onCategorySelected: (category) {
+                      setState(() {
+                        currentCat = category;
+                      });
+                    },
+                  ),
+                  const SizedBox(height: 20), // Add spacing here
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 15), //mmmm20
+                    child: ListView(
+                      shrinkWrap: true,
+                      primary: false,
+                      physics: const NeverScrollableScrollPhysics(),
+                      children: matches[currentCat]!.map<Widget>((match) {
+                        return calenderMatch(
+                          awayLogo: match["awayLogo"] as String,
+                          awayTitle: match["awayTitle"] as String,
+                          homeLogo: match["homeLogo"] as String,
+                          homeTitle: match["homeTitle"] as String,
+                          date: match["date"] as String,
+                          time: match["time"] as String,
+                          week: match["week"] as String,
+                          isFavorite: match["isFavorite"] as bool,
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(height: 20),
-              Categories(
-                currentCat: currentCat,
-                onCategorySelected: (category) {
-                  setState(() {
-                    currentCat = category;
-                  });
-                },
-              ),
-              const SizedBox(height: 20), // Add spacing here
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15), //mmmm20
-                child: ListView(
-                  shrinkWrap: true,
-                  primary: false,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: matches[currentCat]!.map<Widget>((match) {
-                    return calenderMatch(
-                      awayLogo: match["awayLogo"] as String,
-                      awayTitle: match["awayTitle"] as String,
-                      homeLogo: match["homeLogo"] as String,
-                      homeTitle: match["homeTitle"] as String,
-                      date: match["date"] as String,
-                      time: match["time"] as String,
-                      week: match["week"] as String,
-                      isFavorite: match["isFavorite"] as bool,
-                    );
-                  }).toList(),
-                ),
-              ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
-    return scaffold;
   }
 }
